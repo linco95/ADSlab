@@ -62,28 +62,30 @@ BucketSorter::~BucketSorter() {}
 
 /********************************************************************************/
 
-int max(std::vector<int> vec) {
-	int max = vec.at(0);
-	for (int e : vec) {
-		if (e > max) max = e;
+// Returns max value of the vector
+int max(std::vector<int> vec) {		// O(1) + O(n) * O(1) = O(n)
+	int max = vec.at(0);		// O(1)
+	for (int e : vec) {			// O(n)
+		if (e > max) max = e;		// O(1)
 	}
 	return max;
 }
 
-std::vector<int> BucketSorter::sort(vector<int> v) {
-	int k = max(v);
+std::vector<int> BucketSorter::sort(vector<int> v) {		// O(n^2)? O(n*k)?
+	int k = max(v);			// O(1)
 	
-	vector<int> w;
-	for (int i = 0; i < k + 1; i++) w.push_back(0);
+	// Create empty vector w
+	vector<int> w;									// O(1)
+	// Initialize it to 0 at every element
+	for (int i = 0; i < k + 1; i++) w.push_back(0);	// O(n)
 
-	for (int e : v)
-		w.at(e)+=1;
+	// Count how many time each number appears in v
+	for (int e : v)									// O(n)
+		w.at(e)+=1;										// O(1)
 
-
-
-
-	for (int i = 0, j = 0 ; i < w.size(); i++) {
-		while (w.at(i) > 0) {
+	// Add each number correct amount of times in the v array and return it
+	for (int i = 0, j = 0 ; i < w.size(); i++) {	// O(Biggest element of v + 1) O(n)? O(k)?
+		while (w.at(i) > 0) {						// O(n)
 			v.at(j) = i;
 			j++;
 			w.at(i) -= 1;
