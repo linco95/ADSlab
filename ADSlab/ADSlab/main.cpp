@@ -23,6 +23,10 @@ int main() {
 	BucketSorter::printArray(sorted, arrSize);
 	cout << endl;
 
+	vector<int> result = BucketSorter::sort(ourVector);
+
+	for (int e : result) cout << e << " ";
+	cout << endl;
 
 
 	system("PAUSE");

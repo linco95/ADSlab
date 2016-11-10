@@ -58,3 +58,37 @@ void BucketSorter::printArray(int *inArr, const int& size) {
 }
 
 BucketSorter::~BucketSorter() {}
+
+
+/********************************************************************************/
+
+int max(std::vector<int> vec) {
+	int max = vec.at(0);
+	for (int e : vec) {
+		if (e > max) max = e;
+	}
+	return max;
+}
+
+std::vector<int> BucketSorter::sort(vector<int> v) {
+	int k = max(v);
+	
+	vector<int> w;
+	for (int i = 0; i < k + 1; i++) w.push_back(0);
+
+	for (int e : v)
+		w.at(e)+=1;
+
+
+
+
+	for (int i = 0, j = 0 ; i < w.size(); i++) {
+		while (w.at(i) > 0) {
+			v.at(j) = i;
+			j++;
+			w.at(i) -= 1;
+		}
+	}
+
+	return v;
+}
