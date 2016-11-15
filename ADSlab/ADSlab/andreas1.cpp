@@ -71,20 +71,20 @@ int max(std::vector<int> vec) {		// O(1) + O(n) * O(1) = O(n)
 	return max;
 }
 
-std::vector<int> BucketSorter::sort(vector<int> v) {		// O(n^2)? O(n*k)?
-	int k = max(v);			// O(1)
+std::vector<int> BucketSorter::sort(vector<int> v) {	// O(n + k)
+	int k = max(v);									// O(1)
 	
 	// Create empty vector w
 	vector<int> w;									// O(1)
 	// Initialize it to 0 at every element
-	for (int i = 0; i < k + 1; i++) w.push_back(0);	// O(n)
+	for (int i = 0; i < k + 1; i++) w.push_back(0);	// O(k)
 
 	// Count how many time each number appears in v
 	for (int e : v)									// O(n)
 		w.at(e)+=1;										// O(1)
 
 	// Add each number correct amount of times in the v array and return it
-	for (int i = 0, j = 0 ; i < w.size(); i++) {	// O(Biggest element of v + 1) O(n)? O(k)?
+	for (int i = 0, j = 0 ; i < w.size(); i++) {	// O(k)
 		while (w.at(i) > 0) {						// O(n)
 			v.at(j) = i;
 			j++;

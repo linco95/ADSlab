@@ -1,6 +1,7 @@
 #include <iostream>
 #include "sebbes1.h"
 #include "andreas1.h"
+#include "Insertion.h"
 
 using namespace std;
 
@@ -19,11 +20,12 @@ int main() {
 	BucketSorter::printArray(sorted, arrSize);
 	cout << endl;
 
-	vector<int> result = BucketSorter::sort(ourVector);
+	vector<int> result = InsertionSorter::sort(ourVector);
 
 	for (int e : result) cout << e << " ";
 	cout << endl;
 
+	
 
 	system("PAUSE");
 	return 0;

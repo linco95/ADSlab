@@ -1,9 +1,11 @@
-#pragma once
+#ifndef INCLUDED_SEBBES1
+#define INCLUDED_SEBBES1
 #include <iostream>
 #include <vector>
 
-using namespace std;
 class Sebbes1 {
 public:
-	static void BucketSort(vector<int> v);
+	static void BucketSort(std::vector<int> v);
 };
+
+#endif
