@@ -6,7 +6,6 @@ InsertionSorter::InsertionSorter(){
 InsertionSorter::~InsertionSorter(){
 }
 
-
 std::vector<int> InsertionSorter::sort(std::vector<int> input){
 
 	int sorted = 0;
@@ -26,6 +25,7 @@ std::vector<int> InsertionSorter::sort(std::vector<int> input){
 		}
 		input.erase(input.begin() + index);
 		input.insert(input.begin() + index, value);
+		sorted++;
 	}
 
 
