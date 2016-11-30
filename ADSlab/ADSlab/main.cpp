@@ -2,7 +2,6 @@
 #include <vector>
 #include <stdlib.h>
 #include <ctime>
-#include "sebbes1.h"
 #include "andreas1.h"
 #include "Insertion.h"
 
@@ -45,11 +44,9 @@ float timeMeasure(const int &n) {
 }
 
 
-int main() {
-	cout << "helloworld!\n";
-	srand(time(NULL));
+void testTimeInsertion() {
 	vector<int> ourVector = { 8,2,3,3,5 };
-	Sebbes1::BucketSort(ourVector);
+	
 
 	const int arrSize = 5;
 	int arr[arrSize] = { 0, 1, 245, 3, 4 };
@@ -73,6 +70,16 @@ int main() {
 	cout << timeMeasure(10000) << endl;
 
 	// plot (10, 0) (50, 0) (100, 0.02) (250, 0.08) (500, 0.31) (1000, 1.25) 
+}
+
+int main() {
+	cout << "helloworld!\n";
+	srand(time(NULL));
+	
+	testTimeInsertion();
+
+
+
 	system("PAUSE");
 	return 0;
 }
