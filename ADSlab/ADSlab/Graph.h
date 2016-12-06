@@ -1,25 +1,18 @@
 #pragma once
-#include <vector>
-#include <list>
+#include <array>
 
 class Graph {
 public:
-	struct Node {
-		std::vector<Node*> neighbours;
-		bool visisted = false;
-	};
+	typedef int datatype;
+	typedef datatype* datatypeptr;
 
-	Graph();
+	Graph(const int &n);
 	~Graph();
 
-	std::vector<Node*> getFriends(const Node *node) const;
-
-
-	void addNode(Node *node);
-	void removeNode(const Node *node);
+	bool isEdge(const int& i, const int& j) const;
+	void setEdge(const int& i, const int& j, const datatype &x);
 
 private:
-	std::vector<Node*> nodes;
-	
-	std::list<std::list<size_t>> graph;
+	datatypeptr *p;
+	int numberOfNodes;
 };

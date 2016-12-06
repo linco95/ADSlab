@@ -1,29 +1,33 @@
 #include "Graph.h"
 
 
-Graph::Graph() {
+void initializeAdjMatrix(const int& n, Graph::datatypeptr* p) {
+	if (n == 0) p = NULL;
+	else {
 
+		p = new Graph::datatypeptr[n]; // Allocate n memoryslots of datatypeptr
+		for (int i = 0; i < n; i++) {
+			p[i] = new Graph::datatype[n]; // Allocate an array with n datatype
+			for (int j = 0; j < n; j++) {
+				p[i][j] = 0; // initiate value to 0
+			}
+		}
+	}
+}
+
+Graph::Graph(const int& n = 0) {
+	numberOfNodes = n;
+	initializeAdjMatrix(n, p);
 }
 Graph::~Graph() {
 
 }
 
-std::vector<Graph::Node*> Graph::getFriends(const Node *node) const{
-	std::vector<Node*> herro;
-	return herro; // From teh utter side (WE HAVE COOKIES!)
+bool Graph::isEdge(const int & i = 0, const int & j = 0) const{
+
+	return p[i][j] != 0;
 }
 
-
-void Graph::addNode(Node *node) {
-	nodes.push_back(node);
-}
-void Graph::removeNode(const Node *node) {
-	for (auto it = nodes.begin(); it != nodes.end(); it++) {
-		auto node2 = *it;
-		if (node2 == node)
-		{
-			nodes.erase(it);
-			break;
-		}
-	}
+void Graph::setEdge(const int & i, const int &j, const datatype &x){
+	p[i][j] = x;
 }
