@@ -46,7 +46,7 @@ float timeMeasure(const int &n) {
 
 void testTimeInsertion() {
 	vector<int> ourVector = { 8,2,3,3,5 };
-	
+
 
 	const int arrSize = 5;
 	int arr[arrSize] = { 0, 1, 245, 3, 4 };
@@ -72,12 +72,17 @@ void testTimeInsertion() {
 	// plot (10, 0) (50, 0) (100, 0.02) (250, 0.08) (500, 0.31) (1000, 1.25) 
 }
 
+void testGraph() {
+
+}
+
 int main() {
 	cout << "helloworld!\n";
 	srand(time(NULL));
-	
+
 	testTimeInsertion();
 
+	testGraph();
 
 
 	system("PAUSE");
