@@ -93,14 +93,20 @@ void testGraph() {
 	}
 }
 
+
+void testHuff(string input) {
+
+}
+
 int main() {
 	cout << "helloworld!\n";
 	srand(time(NULL));
 
 	//testTimeInsertion();
 
-	testGraph();
+	//testGraph();
 
+	testHuff("Hello world!");
 
 	system("PAUSE");
 	return 0;

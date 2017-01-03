@@ -144,13 +144,17 @@
   <ItemGroup>
     <ClCompile Include="andreas1.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="HuffmanEncoder.cpp" />
     <ClCompile Include="Insertion.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="andreas1.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="HuffmanEncoder.h" />
     <ClInclude Include="Insertion.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
