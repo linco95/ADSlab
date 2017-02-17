@@ -158,7 +158,7 @@ int main() {
 	cout << endl << difftime(before, after) << endl;
 	//testGraph();
 
-	testHuff("aaaaabccddddddddddddd");
+	testHuff("aaaaaabb");
 	system("PAUSE");
 	return 0;
 }

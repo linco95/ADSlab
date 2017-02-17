@@ -30,7 +30,7 @@ void Tree::traverseTree(unordered_map<char, string>& charCodes, const std::strin
 }
 
 void Tree::printTree(unordered_map<char, string>& charCodes)  const {
-	traverseTree(charCodes, "");
+	traverseTree(charCodes, "0");
 }
 /*
 void Tree::printTree(std::vector<char>& bitString) const {

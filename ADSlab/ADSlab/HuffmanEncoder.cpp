@@ -49,6 +49,6 @@ unsigned int HuffmanEncoder::encodeString(const string & input, std::unordered_m
 
 	priorQueue.top()->printTree(charCodes);
 	// Make this function return bitstring for decoding and create separate function for actually encoding the original string
-	
+	delete priorQueue.top();
 	return 0;
 }
