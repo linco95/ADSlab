@@ -32,7 +32,7 @@ void Tree::traverseTree(unordered_map<char, string>& charCodes, const std::strin
 void Tree::printTree(unordered_map<char, string>& charCodes)  const {
 	traverseTree(charCodes, "");
 }
-
+/*
 void Tree::printTree(std::vector<char>& bitString) const {
 	if (bitString.empty()) { // At root?
 		// onödigt
@@ -58,7 +58,7 @@ void Tree::printTree(std::vector<char>& bitString) const {
 		cout << ": " << c << endl;
 	}
 }
-
+*/
 /*
 Tree* tree1 = new Tree(asdasd);
 Tree* tree2 = new Tree(asdasd);

@@ -11,7 +11,7 @@ public:
 	Tree(int w, Tree* t1, Tree* t2);
 	~Tree();
 	int getWeight() const;
-	void printTree(std::vector<char>& bitString) const;
+	//void printTree(std::vector<char>& bitString) const;
 	void printTree(std::unordered_map<char, std::string>& charCodes) const;
 private:
 	void traverseTree(std::unordered_map<char, std::string>& charCodes, const std::string& currentPrefix) const;
