@@ -2,8 +2,7 @@
 #include "Tree.h"
 #include <unordered_map>
 #include <queue>
-
-#include <iostream>
+#include <assert.h>
 
 //#include <functional>
 
@@ -29,7 +28,9 @@ unordered_map<char, size_t> getFrequencies(const string& input) {
 
 // O(n)
 unsigned int HuffmanEncoder::encodeString(const string & input, std::unordered_map<char, std::string>& charCodes) {
+	assert(input.size() > 0);
 	auto frequencies = getFrequencies(input);	// Get a map with all characters and their frequencies
+	assert(frequencies.size() > 1);
 
 	minQueue priorQueue(compare);
 
