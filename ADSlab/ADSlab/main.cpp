@@ -10,6 +10,7 @@
 #include <thread>
 #include <future>
 #include <unordered_map>
+#include "Recursive.h"
 
 using namespace std;
 
@@ -159,6 +160,8 @@ int main() {
 	//testGraph();
 
 	testHuff("aaaaaabbb");
+	cout << "RECURSIVE ****************\n";
+	Recursive::recursive("1234567890ABCDEF");
 	system("PAUSE");
 	return 0;
 }

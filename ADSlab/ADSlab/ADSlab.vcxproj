@@ -147,6 +147,7 @@
     <ClCompile Include="HuffmanEncoder.cpp" />
     <ClCompile Include="Insertion.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Recursive.cpp" />
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="HuffmanEncoder.h" />
     <ClInclude Include="Insertion.h" />
+    <ClInclude Include="Recursive.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
