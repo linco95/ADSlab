@@ -1,12 +1,52 @@
 #include <iostream>
 #include <vector>
 #include <stdlib.h>
+#include <iostream>
 #include <ctime>
 #include "andreas1.h"
 #include "Insertion.h"
+#include "HuffmanEncoder.h"
 #include "Graph.h"
+#include <thread>
+#include <future>
+#include <unordered_map>
 
 using namespace std;
+
+/*template<typename T>
+void swap(T& a, T&b) {
+	auto temp = a;
+	a = b;
+	b = temp;
+}
+*/
+
+// Implementation of https://www.youtube.com/watch?v=aQiWF4E8flQ&t=109s
+vector<int> quicksort(vector<int> arr) {
+	if (arr.size() <= 1) return arr;
+
+	int pivot = arr.size() - 1;
+	int wall = 0;
+	int curEl = 0;
+	while (pivot != curEl) {
+		if (arr.at(curEl) < arr.at(pivot)){
+			swap(arr.at(curEl), arr.at(wall));
+			wall++;
+		}
+		curEl++;
+	}
+	swap(arr.at(pivot), arr.at(wall));
+	future<vector<int>> first = async(quicksort, vector<int>(arr.begin(), arr.begin() + wall));
+	future<vector<int>> second = async(quicksort, vector<int>(arr.begin() + wall, arr.end()));
+	vector<int> vec1 = first.get();
+	vector<int> vec2 = second.get();
+	vec1.insert(vec1.end(), vec2.begin(), vec2.end()); // Concatencate vectors
+
+	return vec1;
+}
+
+
+
 
 #pragma region timeSort
 // Returns x vectors with size n
@@ -95,19 +135,30 @@ void testGraph() {
 
 
 void testHuff(string input) {
-
+	unordered_map<char, std::string> charCodes;
+	cout << "HUFFMAN:" << endl;
+	auto encoded = HuffmanEncoder::encodeString(input, charCodes);
+	
+	for (auto it = charCodes.begin(); it != charCodes.end(); it++) {
+		cout << it->first << ", " << it->second << endl;
+		
+	}
 }
 
 int main() {
 	cout << "helloworld!\n";
 	srand(time(NULL));
-
+	time_t before = time(NULL);
+	auto sorted = quicksort(vector<int>({ -1712, 2163 }));
+	time_t after = time(NULL);
 	//testTimeInsertion();
-
+	for (auto x : sorted) {
+		cout << x << ", ";
+	}
+	cout << endl << difftime(before, after) << endl;
 	//testGraph();
 
-	testHuff("Hello world!");
-
+	testHuff("aaaaabccddddddddddddd");
 	system("PAUSE");
 	return 0;
 }
