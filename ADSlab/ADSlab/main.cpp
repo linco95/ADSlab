@@ -11,6 +11,7 @@
 #include <future>
 #include <unordered_map>
 #include "Recursive.h"
+#include <chrono>
 
 using namespace std;
 
@@ -146,6 +147,23 @@ void testHuff(string input) {
 	}
 }
 
+void testTCalc(int n) {
+	cout << "RECURSIVE ****************\n";
+
+
+	auto begin = std::chrono::high_resolution_clock::now();
+	// code to benchmark
+	cout << "T(" << n << ") = " << Recursive::recursive(n) << endl;
+	auto end = std::chrono::high_resolution_clock::now();
+	std::cout << "Recursive: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count() << "ns" << std::endl;
+
+	begin = std::chrono::high_resolution_clock::now();
+	// code to benchmark
+	cout << "T(" << n << ") = " << Recursive::dynamic(n) << endl;
+	end = std::chrono::high_resolution_clock::now();
+	std::cout << "Dynamic: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count() << "ns" << std::endl;
+}
+
 int main() {
 	cout << "helloworld!\n";
 	srand(time(NULL));
@@ -160,9 +178,9 @@ int main() {
 	//testGraph();
 
 	testHuff("aaaaaabbb");
-	cout << "RECURSIVE ****************\n";
-	int n = 16;
-	cout << "T(" << n << ") = " << Recursive::recursive(n) << endl;
+
+	testTCalc(pow(2, 2));
+	
 	system("PAUSE");
 	return 0;
 }
