@@ -27,7 +27,7 @@ unordered_map<char, size_t> getFrequencies(const string& input) {
 
 
 // O(n)
-unsigned int HuffmanEncoder::encodeString(const string & input, std::unordered_map<char, std::string>& charCodes) {
+void HuffmanEncoder::encodeString(const string & input, std::unordered_map<char, std::string>& charCodes) {
 	assert(input.size() > 0);
 	auto frequencies = getFrequencies(input);	// Get a map with all characters and their frequencies
 	assert(frequencies.size() > 1);
@@ -51,5 +51,4 @@ unsigned int HuffmanEncoder::encodeString(const string & input, std::unordered_m
 	priorQueue.top()->printTree(charCodes);
 	// Make this function return bitstring for decoding and create separate function for actually encoding the original string
 	delete priorQueue.top();
-	return 0;
 }

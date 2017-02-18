@@ -138,7 +138,7 @@ void testGraph() {
 void testHuff(string input) {
 	unordered_map<char, std::string> charCodes;
 	cout << "HUFFMAN:" << endl;
-	auto encoded = HuffmanEncoder::encodeString(input, charCodes);
+	HuffmanEncoder::encodeString(input, charCodes);
 	
 	for (auto it = charCodes.begin(); it != charCodes.end(); it++) {
 		cout << it->first << ", " << it->second << endl;
@@ -161,7 +161,8 @@ int main() {
 
 	testHuff("aaaaaabbb");
 	cout << "RECURSIVE ****************\n";
-	Recursive::recursive("1234567890ABCDEF");
+	int n = 16;
+	cout << "T(" << n << ") = " << Recursive::recursive(n) << endl;
 	system("PAUSE");
 	return 0;
 }

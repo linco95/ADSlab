@@ -1,8 +1,8 @@
 #pragma once
 
-#include <string>
 
 class Recursive {
 public:
-	static void recursive(std::string input);
+	static int dynamic(int input);
+	static int recursive(int input);
 };
