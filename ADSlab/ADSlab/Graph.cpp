@@ -1,6 +1,6 @@
 #include "Graph.h"
 #include <queue>
-#include <unordered_map>
+#include <map>
 using namespace std;
 
 
@@ -50,17 +50,17 @@ void Graph::setEdge(const int & i, const int &j, const datatype &x) {
 	p[j][i] = x;
 }
 
-unordered_map<int, int> Graph::getShortestPaths(const int &A) const { // O(n) * O(n) = O(n^2)?
+map<int, int> Graph::getShortestPaths(const int &A) const { // O(n) * O(n) = O(n^2)?
 
 	queue<neighbourDist> visitUs;										// O(1)
-	unordered_map<int, int> visited;									// O(1)
+	map<int, int> visited;												// O(1)
 	// Insert startvalue into queue
 	visitUs.push(neighbourDist(A, 0));									// O(1)
 
 	while (!visitUs.empty()) {											// O(n) * O(n) = O(n^2)?
 		auto nodeDist = visitUs.front();								// O(1)
 		visitUs.pop();													// O(1)
-		if (visited.find(nodeDist.index) == visited.end()) {			// O(n) + O(n) = O(n)
+		if (visited.find(nodeDist.index) == visited.end()) {			// O(log(n))
 			visited[nodeDist.index] = nodeDist.dist;					// O(1)
 
 			auto neigh = getNeigbhours(nodeDist.index);					// O(n)
