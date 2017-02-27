@@ -51,7 +51,7 @@ void Graph::setEdge(const int & i, const int &j, const datatype &x) {
 	p[j][i] = x;
 }
 
-list<Graph::neighbourDist> Graph::getShortestPaths(const int &A) const { // O(n) * O(n^2) = O(n^3)?
+list<Graph::neighbourDist> Graph::getShortestPaths(const int &A) const { // O(n) * O(n) = O(n^2)?
 
 	queue<neighbourDist> visitUs;									// O(1)
 	set<int> visited;												// O(1)
@@ -59,10 +59,10 @@ list<Graph::neighbourDist> Graph::getShortestPaths(const int &A) const { // O(n)
 	// Insert startvalue into queue
 	visitUs.push(neighbourDist(A, 0));								// O(1)
 
-	while (!visitUs.empty()) {						// O(n) * O(n^2) = O(n^3)?
+	while (!visitUs.empty()) {						// O(n) * O(n) = O(n^2)?
 		auto nodeDist = visitUs.front();							// O(1)
 		visitUs.pop();												// O(1)
-		if (visited.find(nodeDist.index) == visited.end()) {	// O(n^2)
+		if (visited.find(nodeDist.index) == visited.end()) {	// O(n) + O(n) = O(n)
 			visited.insert(nodeDist.index);							// O(1)
 			determined.push_back(nodeDist);							// O(1)
 
