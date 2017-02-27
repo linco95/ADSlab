@@ -38,9 +38,9 @@ bool Graph::isEdge(const int & i = 0, const int & j = 0) const {
 	return p[i][j] != 0;
 }
 
-queue<Graph::datatype> Graph::getNeigbhours(int index) const {
-	queue<Graph::datatype> neig;
-	for (int i = 0; i < numberOfNodes; i++) {
+queue<Graph::datatype> Graph::getNeigbhours(int index) const {	// O(n)
+	queue<Graph::datatype> neig;							// O(1)
+	for (int i = 0; i < numberOfNodes; i++) {				// O(n)
 		if (isEdge(index, i)) neig.push(i);
 	}
 	return neig;
@@ -51,29 +51,29 @@ void Graph::setEdge(const int & i, const int &j, const datatype &x) {
 	p[j][i] = x;
 }
 
-list<Graph::neighbourDist> Graph::getShortestPaths(const int &A) const {
+list<Graph::neighbourDist> Graph::getShortestPaths(const int &A) const { // O(n) * O(n^2) = O(n^3)?
 
-	queue<neighbourDist> visitUs;
-	set<int> visited;
-	list<neighbourDist> determined;
+	queue<neighbourDist> visitUs;									// O(1)
+	set<int> visited;												// O(1)
+	list<neighbourDist> determined;									// O(1)
 	// Insert startvalue into queue
-	visitUs.push(neighbourDist(A, 0));
+	visitUs.push(neighbourDist(A, 0));								// O(1)
 
-	while (!visitUs.empty()) {
-		auto nodeDist = visitUs.front();
-		visitUs.pop();
-		if (visited.find(nodeDist.index) == visited.end()) {
-			visited.insert(nodeDist.index);
-			determined.push_back(nodeDist);
+	while (!visitUs.empty()) {						// O(n) * O(n^2) = O(n^3)?
+		auto nodeDist = visitUs.front();							// O(1)
+		visitUs.pop();												// O(1)
+		if (visited.find(nodeDist.index) == visited.end()) {	// O(n^2)
+			visited.insert(nodeDist.index);							// O(1)
+			determined.push_back(nodeDist);							// O(1)
 
-			auto neigh = getNeigbhours(nodeDist.index);
+			auto neigh = getNeigbhours(nodeDist.index);				// O(n)
 
-			while (!neigh.empty()) {
-				neighbourDist data;
-				data.index = neigh.front();
-				neigh.pop();
-				data.dist = nodeDist.dist + 1;
-				visitUs.push(data);
+			while (!neigh.empty()) {							// O(n)
+				neighbourDist data;									// O(1)
+				data.index = neigh.front();							// O(1)
+				neigh.pop();										// O(1)
+				data.dist = nodeDist.dist + 1;						// O(1)
+				visitUs.push(data);									// O(1)
 			}
 		}
 	}
