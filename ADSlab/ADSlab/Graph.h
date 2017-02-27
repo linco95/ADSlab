@@ -1,5 +1,5 @@
 #pragma once
-#include <list>
+#include <unordered_map>
 #include <queue>
 
 class Graph {
@@ -41,7 +41,7 @@ public:
 	void setEdge(const int& i, const int& j, const datatype &x);
 
 	// Will return an numberOfNodes^2 matrix with the shortest paths between the nodes
-	std::list<neighbourDist> getShortestPaths(const int &A) const;
+	std::unordered_map<int,int> getShortestPaths(const int &A) const;
 	std::queue<Graph::datatype> Graph::getNeigbhours(int v) const;
 
 private:

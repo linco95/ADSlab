@@ -130,7 +130,7 @@ void testGraph() {
 
 	auto x = g1.getShortestPaths(3);
 	for (auto y : x) {
-		std::cout << "[" << y.index << ", " << y.dist << ", " << (y.dist % 2 ? "Enemy" : "Friend") << "]" << endl;
+		std::cout << "[" << y.first<< ", " << y.second << ", " << (y.second % 2 ? "Enemy" : "Friend") << "]" << endl;
 
 	}
 }
